@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Project10Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Project10Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Project10Model.C__MigrationHistory" />
+    <EntitySet Name="Addresses" EntityType="Project10Model.Address" />
+    <EntitySet Name="AspNetRoles" EntityType="Project10Model.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Project10Model.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Project10Model.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Project10Model.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Project10Model.AspNetUser" />
+    <EntitySet Name="Carts" EntityType="Project10Model.Cart" />
+    <EntitySet Name="Categories" EntityType="Project10Model.Category" />
+    <EntitySet Name="Cities" EntityType="Project10Model.City" />
+    <EntitySet Name="Contacts" EntityType="Project10Model.Contact" />
+    <EntitySet Name="Customers" EntityType="Project10Model.Customer" />
+    <EntitySet Name="Occasions" EntityType="Project10Model.Occasion" />
+    <EntitySet Name="Order_Details" EntityType="Project10Model.Order_Details" />
+    <EntitySet Name="Orders" EntityType="Project10Model.Order" />
+    <EntitySet Name="Products" EntityType="Project10Model.Product" />
+    <EntitySet Name="Reviews" EntityType="Project10Model.Review" />
+    <EntitySet Name="SpetialOrders" EntityType="Project10Model.SpetialOrder" />
+    <EntitySet Name="sysdiagrams" EntityType="Project10Model.sysdiagram" />
+    <AssociationSet Name="FK__Address__Id__02FC7413" Association="Project10Model.FK__Address__Id__02FC7413">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRole" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Project10Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Project10Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRole" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reviews__Id__6E01572D" Association="Project10Model.FK__Reviews__Id__6E01572D">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_AspNetUsers" Association="Project10Model.FK_Orders_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__CustomerId__114A936A" Association="Project10Model.FK__Cart__CustomerId__114A936A">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__ProductId__123EB7A3" Association="Project10Model.FK__Cart__ProductId__123EB7A3">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Catego__4AB81AF0" Association="Project10Model.FK__Products__Catego__4AB81AF0">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SpetialOr__Categ__05D8E0BE" Association="Project10Model.FK__SpetialOr__Categ__05D8E0BE">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SpetialOrder" EntitySet="SpetialOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customers__CityI__0D7A0286" Association="Project10Model.FK__Customers__CityI__0D7A0286">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Occasi__4BAC3F29" Association="Project10Model.FK__Products__Occasi__4BAC3F29">
+      <End Role="Occasion" EntitySet="Occasions" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orderItem__Produ__628FA481" Association="Project10Model.FK__orderItem__Produ__628FA481">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order_Details" EntitySet="Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reviews__Product__6EF57B66" Association="Project10Model.FK__Reviews__Product__6EF57B66">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK__Address__Id__02FC7413" FromRole="Address" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRole" ToRole="AspNetUserRole" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="userEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetRole" Relationship="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRole" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Addresses" Relationship="Project10Model.FK__Address__Id__02FC7413" FromRole="AspNetUser" ToRole="Address" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Project10Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Project10Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserRole" />
+    <NavigationProperty Name="Reviews" Relationship="Project10Model.FK__Reviews__Id__6E01572D" FromRole="AspNetUser" ToRole="Review" />
+    <NavigationProperty Name="Orders" Relationship="Project10Model.FK_Orders_AspNetUsers" FromRole="AspNetUser" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="IsCheckedOut" Type="Boolean" />
+    <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Project10Model.FK__Cart__CustomerId__114A936A" FromRole="Cart" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="Project10Model.FK__Cart__ProductId__123EB7A3" FromRole="Cart" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Project10Model.FK__Products__Catego__4AB81AF0" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="SpetialOrders" Relationship="Project10Model.FK__SpetialOr__Categ__05D8E0BE" FromRole="Category" ToRole="SpetialOrder" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Project10Model.FK__Customers__CityI__0D7A0286" FromRole="City" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" />
+    <NavigationProperty Name="Carts" Relationship="Project10Model.FK__Cart__CustomerId__114A936A" FromRole="Customer" ToRole="Cart" />
+    <NavigationProperty Name="City" Relationship="Project10Model.FK__Customers__CityI__0D7A0286" FromRole="Customer" ToRole="City" />
+  </EntityType>
+  <EntityType Name="Occasion">
+    <Key>
+      <PropertyRef Name="OccasionId" />
+    </Key>
+    <Property Name="OccasionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OccasionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OccasionImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Project10Model.FK__Products__Occasi__4BAC3F29" FromRole="Occasion" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order_Details">
+    <Key>
+      <PropertyRef Name="orderItemsId" />
+    </Key>
+    <Property Name="orderItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Project10Model.FK__orderItem__Produ__628FA481" FromRole="Order_Details" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderPrice" Type="Int32" />
+    <Property Name="isCheckout" Type="Boolean" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="totalAmount" Type="Int32" />
+    <Property Name="orderDate" Type="DateTime" Precision="3" />
+    <Property Name="Address_one" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Address_two" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Payment_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Messege" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK_Orders_AspNetUsers" FromRole="Order" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProductImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="OccasionId" Type="Int32" />
+    <NavigationProperty Name="Carts" Relationship="Project10Model.FK__Cart__ProductId__123EB7A3" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Category" Relationship="Project10Model.FK__Products__Catego__4AB81AF0" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Occasion" Relationship="Project10Model.FK__Products__Occasi__4BAC3F29" FromRole="Product" ToRole="Occasion" />
+    <NavigationProperty Name="Order_Details" Relationship="Project10Model.FK__orderItem__Produ__628FA481" FromRole="Product" ToRole="Order_Details" />
+    <NavigationProperty Name="Reviews" Relationship="Project10Model.FK__Reviews__Product__6EF57B66" FromRole="Product" ToRole="Review" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" />
+    <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK__Reviews__Id__6E01572D" FromRole="Review" ToRole="AspNetUser" />
+    <NavigationProperty Name="Product" Relationship="Project10Model.FK__Reviews__Product__6EF57B66" FromRole="Review" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="SpetialOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="CategoryId" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Project10Model.FK__SpetialOr__Categ__05D8E0BE" FromRole="SpetialOrder" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Address__Id__02FC7413">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="Project10Model.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Type="Project10Model.AspNetRole" Role="AspNetRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Project10Model.AspNetUserRole" Role="AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Project10Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Project10Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Project10Model.AspNetUserRole" Role="AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reviews__Id__6E01572D">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="Project10Model.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_AspNetUsers">
+    <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="Project10Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__CustomerId__114A936A">
+    <End Type="Project10Model.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="Project10Model.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__ProductId__123EB7A3">
+    <End Type="Project10Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project10Model.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Catego__4AB81AF0">
+    <End Type="Project10Model.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="Project10Model.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SpetialOr__Categ__05D8E0BE">
+    <End Type="Project10Model.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="Project10Model.SpetialOrder" Role="SpetialOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="SpetialOrder">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customers__CityI__0D7A0286">
+    <End Type="Project10Model.City" Role="City" Multiplicity="0..1" />
+    <End Type="Project10Model.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Occasi__4BAC3F29">
+    <End Type="Project10Model.Occasion" Role="Occasion" Multiplicity="0..1" />
+    <End Type="Project10Model.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occasion">
+        <PropertyRef Name="OccasionId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="OccasionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orderItem__Produ__628FA481">
+    <End Type="Project10Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project10Model.Order_Details" Role="Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Order_Details">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reviews__Product__6EF57B66">
+    <End Type="Project10Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Project10Model.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

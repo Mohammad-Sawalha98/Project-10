@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Project_10.Models.Occasion>
+
+@foreach (var item in Model)
+{
+
+
+
+    <div class="col-sm-6 col-md-6 col-lg-6" >
+        <div class="box" style="border-radius: 25px">
+            <div class="option_container">
+                <div class="options">
+
+                    <a href="/Products/Index3/@item.OccasionId" class="option2">
+                        View Products
+                    </a>
+                </div>
+            </div>
+            <div>
+                <img src="~/Images/@item.OccasionImage" style="height: 290px; width: 98%; border-radius:10px; margin-left:1% " alt="">
+            </div>
+            <div style="padding: 6px; text-align: center ; margin-top:8px">
+                <h5>
+                    @item.OccasionName
+                </h5>
+
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+

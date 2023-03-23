@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Project_10.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+}
+
+
+
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Search section will be here
+        </h1>
+        <button class="button light">Button</button>
+    </div>
+</section>
+
+<section class="section main-section">
+
+    <div class="card has-table">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                Categories
+            </p>
+
+            <p class="card-header-icon">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <a href="/Categories/Index" class="card-header-icon">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="checkbox-cell">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.CategoryName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.CategoryDescription)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.CategoryImage)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td class="checkbox-cell">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    <span class="check"></span>
+                                </label>
+                            </td>
+                            @*<td class="image-cell">
+                                    <div class="image">
+                                        <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
+                                    </div>
+                                </td>*@
+                        <td data-label="Name">
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+
+                        <td data-label="Created">
+                            @Html.DisplayFor(modelItem => item.CategoryDescription)
+
+                        </td>
+
+                        <td data-label="City">
+
+                            @*@Html.DisplayFor(modelItem => item.CategoryImage)*@
+                            <div class="d-flex px-2 py-1">
+                                <div>
+
+                                    <img name="CategoryImage" id="CategoryImage" src="~/Images/@Html.DisplayFor(modelItem => item.CategoryImage)" height="50px" width="60px" />
+                                </div>
+
+                            </div>
+
+
+                        </td>
+                            <td class="actions-cell">
+
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="table-pagination">
+                <div class="flex items-center justify-between">
+                    <div class="buttons">
+                        <button type="button" class="button active">1</button>
+                        <button type="button" class="button">2</button>
+                        <button type="button" class="button">3</button>
+                    </div>
+                    <small>Page 1 of 3</small>
+                </div>
+            </div>
+        </div>
+    </div>
+

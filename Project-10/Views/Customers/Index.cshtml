@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Project_10.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Search section will be here
+        </h1>
+        <button class="button light">Button</button>
+    </div>
+</section>
+
+<section class="section main-section">
+
+    <div class="card has-table">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                Customers
+            </p>
+
+            <p class="card-header-icon">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <a href="/Customers/Index" class="card-header-icon">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="checkbox-cell">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="check"></span>
+                            </label>
+                        </th>
+                       
+                        <th>  @Html.DisplayNameFor(model => model.CustomerName)</th>
+
+                        <th>@Html.DisplayNameFor(model => model.CustomerEmail)</th>
+
+                        <th>@Html.DisplayNameFor(model => model.City.CityName)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td class="checkbox-cell">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    <span class="check"></span>
+                                </label>
+                            </td>
+                            @*<td class="image-cell">
+                                <div class="image">
+                                    <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
+                                </div>
+                            </td>*@
+                        <td data-label="Name">
+                            @Html.DisplayFor(modelItem => item.CustomerName)
+                        </td>
+
+                        <td data-label="Created">
+                            @Html.DisplayFor(modelItem => item.CustomerEmail)
+
+                        </td>
+
+                            <td data-label="City">
+                                <small class="text-gray-500" title="Oct 25, 2021">
+                                    @Html.DisplayFor(modelItem => item.City.CityName)
+
+                                </small>
+                            </td>
+                            <td class="actions-cell">
+                                
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+                               
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+            </table>
+            <div class="table-pagination">
+                <div class="flex items-center justify-between">
+                    <div class="buttons">
+                        <button type="button" class="button active">1</button>
+                        <button type="button" class="button">2</button>
+                        <button type="button" class="button">3</button>
+                    </div>
+                    <small>Page 1 of 3</small>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Project_10.Models.Category>
+
+
+@foreach (var item in Model)
+{
+
+
+    <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="box" style="text-align: center; border-radius: 25px ">
+            <div class="option_container">
+                <div class="options">
+
+
+                    <a href="/Products/Index2/@item.CategoryId" class="option2">
+                        View Products
+                    </a>
+                </div>
+            </div>
+            <div>
+                <img src="~/Images/@item.CategoryImage" style="height: 290px; width: 96%; border-radius: 10px " alt="">
+            </div>
+            <div style="padding: 6px; text-align: center ; margin-top:8px">
+                <h5>
+                    @item.CategoryName
+                </h5>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+

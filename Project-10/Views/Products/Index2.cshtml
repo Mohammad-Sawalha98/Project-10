@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Project_10.Models.Product>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>@*Category Image*@
+    <div class="col-md-4"></div>@*Category Name*@
+    <div class="col-md-4"></div>@*Button*@
+</div>
+
+
+@*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our <span>Products</span>
+            </h2>
+        </div>
+        <div class="row">
+
+
+
+
+
+            @foreach (var item in Model)
+            {
+                @*@item.Category.CategoryName*@
+
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <div class="box" style="text-align: center; border-radius: 25px ">
+                        <div class="option_container">
+                            <div class="options">
+                                @*<a href="" class="option1">
+                                    Add To Cart
+
+                                </a>*@
+                                <a class="option1" href="@Url.Action("Buy", "Carts", new { id = item.ProductId })"> Add To Cart</a>
+
+                                <a href="/Products/Index4/@item.ProductId" class="option2">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="~/Images/@item.ProductImage" style="height: 290px; width: 96%; border-radius: 10px " alt="">
+                        </div>
+                        <div class="detail-box" style="padding:6px">
+                            <h5 style="margin-left:20%">
+                                @item.ProductName
+                            </h5>
+                            <h6 style="margin-right:20%">
+                                @item.price $
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+
+
+        </div>
+    </div>
+
+
+</section>
+
+

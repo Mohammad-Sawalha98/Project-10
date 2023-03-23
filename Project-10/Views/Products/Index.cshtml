@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Project_10.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+}
+
+
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Search section will be here
+        </h1>
+        <button class="button light">Button</button>
+    </div>
+</section>
+
+<section class="section main-section">
+
+    <div class="card has-table">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                Products
+            </p>
+
+            <p class="card-header-icon">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <a href="/Products/Index" class="card-header-icon">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                   
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductDescription)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductImage)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.price)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category.CategoryName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Occasion.OccasionName)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductDescription)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.ProductImage)*@
+                                <div class="d-flex px-2 py-1">
+                                    <div>
+
+                                        <img name="CategoryImage" id="CategoryImage" src="~/Images/@Html.DisplayFor(modelItem => item.ProductImage)" height="50px" width="60px" />
+                                    </div>
+
+                                </div>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Occasion.OccasionName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="table-pagination">
+                <div class="flex items-center justify-between">
+                    <div class="buttons">
+                        <button type="button" class="button active">1</button>
+                        <button type="button" class="button">2</button>
+                        <button type="button" class="button">3</button>
+                    </div>
+                    <small>Page 1 of 3</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

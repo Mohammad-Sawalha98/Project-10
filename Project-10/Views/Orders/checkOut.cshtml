@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "checkOut";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+}
+
+<h2>checkOut</h2>
+
+
+<!--Checkout Content-->
+<div class="section checkout-style1 pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                <!--Billing details-->
+                <div class="block  mb-3 billing-detail">
+                    <div class="block-content">
+                        <h2 class="title text-uppercase">Billing details</h2>
+                        <div class="create-ac-content">
+                            <form method="post" action="#">
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="input-firstname" class="form-label">First Name <span class="required">*</span></label>
+                                            <input name="firstname" value="" id="input-firstname" type="text" required="" class="form-control">
+                                        </div>
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="input-lastname" class="form-label">Last Name <span class="required">*</span></label>
+                                            <input name="lastname" value="" id="input-lastname" type="text" required="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="input-email" class="form-label">E-Mail <span class="required">*</span></label>
+                                            <input name="email" value="" id="input-email" type="email" required="" class="form-control">
+                                        </div>
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="input-telephone" class="form-label">Phone <span class="required">*</span></label>
+                                            <input name="telephone" value="" id="input-telephone" type="tel" required="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 mb-2">
+                                            <label for="input-address-1" class="form-label">Street address <span class="required">*</span></label>
+                                            <input name="address_1" value="" id="input-address-1" type="text" required="" placeholder="Street address" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 mb-2">
+                                            <input name="address_2" value="" id="input-address-2" type="text" required="" placeholder="Apartment, suite, unit etc. (optional)" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="input-postcode" class="form-label">Postcode / ZIP <span class="required">*</span></label>
+                                            <input name="postcode" value="" id="input-postcode" type="text" class="form-control">
+                                        </div>
+
+                                        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
+                                            <label for="address_province" class="form-label">Town / City <span class="required">*</span></label>
+                                            <select id="address_province" name="address[province]" data-default="" class="form-control">
+                                                <option value="0" label="Select a state" selected="selected">Select a city</option>
+                                                <option value="AR">Irbid</option>
+                                                <option value="CA">Ajloun</option>
+                                                <option value="DE">Jerash</option>
+                                                <option value="FL">Mafraq</option>
+                                                <option value="GA">Balqa</option>
+                                                <option value="HI">Amman</option>
+                                                <option value="ID">Zarqa</option>
+                                                <option value="KS">Zarqa</option>
+                                                <option value="LA">Karak</option>
+                                                <option value="ME">Tafilah</option>
+                                                <option value="NC">Ma'an</option>
+                                                <option value="OR">Aqaba</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12 col-lg-12 col-xl-12 mb-0">
+                                            <label for="input-company" class="form-label">Order Notes (optional)</label>
+                                            <textarea class="resize-both form-control" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--End Billing details-->
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                <!--Order Summary-->
+                <div class="block mb-3 order-summary">
+                    <div class="block-content">
+                        <h2 class="title text-uppercase">Your order</h2>
+                        <div class="table-responsive-sm order-table">
+                            <table class="table table-hover text-center">
+
+
+
+                                <tr>
+                                    <td class="text-start text-uppercase"><b>Shipping</b></td>
+                                    <td class="text-start">Flat rate: $10.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start text-uppercase"><b>Total</b></td>
+                                    <td class="text-start red-text"><b>$845.00</b></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="your-payment mt-4">
+                            <h2 class="title text-uppercase">payment method</h2>
+                            <div class="payment-method">
+                                <ul class="mb-20 list-unstyled">
+
+
+                                    <li>
+                                        <input type="radio" id="option-3" name="selector">
+                                        <label for="option-3" class="mx-2">Cash On Delivery</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="option-4" name="selector">
+                                        <label for="option-4" class="mx-2">PayPal</label>
+                                        <p class="small">Pay via PayPal you can pay with your credit card if you don't have a PayPal account.</p>
+                                    </li>
+                                </ul>
+                                <div class="order-button-payment mt-4 clearfix">
+                                    <a href="#" class="btn btn-primary btn-lg rounded-pill w-100">Place order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Order Summary-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Checkout Content-->

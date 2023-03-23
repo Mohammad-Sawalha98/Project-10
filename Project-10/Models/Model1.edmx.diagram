@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78bafd5570524a97a44d43c117e90f02" Name="Diagram1">
+        <EntityTypeShape EntityType="Project10Model.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="5.125" />
+        <EntityTypeShape EntityType="Project10Model.Address" Width="1.5" PointX="3" PointY="21.25" />
+        <EntityTypeShape EntityType="Project10Model.AspNetRole" Width="1.5" PointX="3.75" PointY="5.75" />
+        <EntityTypeShape EntityType="Project10Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="18.5" />
+        <EntityTypeShape EntityType="Project10Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="16" />
+        <EntityTypeShape EntityType="Project10Model.AspNetUserRole" Width="1.5" PointX="6" PointY="7.625" />
+        <EntityTypeShape EntityType="Project10Model.AspNetUser" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="Project10Model.Cart" Width="1.5" PointX="10.25" PointY="1.375" />
+        <EntityTypeShape EntityType="Project10Model.Category" Width="1.5" PointX="1.5" PointY="4.5" />
+        <EntityTypeShape EntityType="Project10Model.City" Width="1.5" PointX="5.75" PointY="1.875" />
+        <EntityTypeShape EntityType="Project10Model.Contact" Width="1.5" PointX="8.75" PointY="8.125" />
+        <EntityTypeShape EntityType="Project10Model.Customer" Width="1.5" PointX="8" PointY="1.5" />
+        <EntityTypeShape EntityType="Project10Model.Occasion" Width="1.5" PointX="1.5" PointY="1.5" />
+        <EntityTypeShape EntityType="Project10Model.Order_Details" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="Project10Model.Order" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="Project10Model.Product" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Project10Model.Review" Width="1.5" PointX="6" PointY="10.375" />
+        <EntityTypeShape EntityType="Project10Model.SpetialOrder" Width="1.5" PointX="3.75" PointY="25.125" />
+        <EntityTypeShape EntityType="Project10Model.sysdiagram" Width="1.5" PointX="10.75" PointY="5.125" />
+        <AssociationConnector Association="Project10Model.FK__Address__Id__02FC7413" />
+        <AssociationConnector Association="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="Project10Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Project10Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Project10Model.FK__Reviews__Id__6E01572D" />
+        <AssociationConnector Association="Project10Model.FK_Orders_AspNetUsers" />
+        <AssociationConnector Association="Project10Model.FK__Cart__CustomerId__114A936A" />
+        <AssociationConnector Association="Project10Model.FK__Cart__ProductId__123EB7A3" />
+        <AssociationConnector Association="Project10Model.FK__Products__Catego__4AB81AF0" />
+        <AssociationConnector Association="Project10Model.FK__SpetialOr__Categ__05D8E0BE" />
+        <AssociationConnector Association="Project10Model.FK__Customers__CityI__0D7A0286" />
+        <AssociationConnector Association="Project10Model.FK__Products__Occasi__4BAC3F29" />
+        <AssociationConnector Association="Project10Model.FK__orderItem__Produ__628FA481" />
+        <AssociationConnector Association="Project10Model.FK__Reviews__Product__6EF57B66" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,101 @@
+﻿@model Project_10.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Login-Register.cshtml";
+
+
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+
+
+<section class="vh-100 bg-image">
+    
+    @*gradient-custom-3*@
+    <div class="mask d-flex align-items-center h-100 " style="background-image: url('/Images/Register.jpg'); background-size: cover; padding:10px ; height:725px !important">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5" >
+                            <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+
+                            @{
+                                Project_10.Models.Project10Entities db = new Project_10.Models.Project10Entities();
+                                var city = db.Cities.ToList();
+                            }
+
+
+
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal ", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <hr />
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    <label for="Name" class="col-md-8 control-label">Name</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="Name" id="Name" value="" class="form-control" required />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-8 control-label">City</label>
+
+                                    <div class="col-md-12">
+                                        <select name="CityId" id="City" class="form-control" required>
+
+
+                                            @foreach (var item in city)
+                                            {
+                                                <option value="@item.CityId">@item.CityName</option>
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-8 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-8 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-8 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-12">
+                                        <input type="submit" class="btn btn-default" value="Register" />
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

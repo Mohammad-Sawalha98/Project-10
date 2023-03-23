@@ -1,0 +1,140 @@
+﻿@model Project_10.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isCheckout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isCheckout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address_one)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address_one)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address_two)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address_two)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_Method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_Method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Messege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Messege)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

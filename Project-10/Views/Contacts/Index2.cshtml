@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Project_10.Models.Contact>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+<body class="sub_page" style="background-image:url('/images/christmas-composition-branches-with-baubles.jpg');background-size:contain ">
+
+  
+    <!-- inner page section -->
+    @*<section class="inner_page_head">*@
+    <br /> <br />
+    <div class="container_fuild">
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <div class="full" style="display:flex ; flex-direction:column ; align-items:center">
+                    <h1 style="color: black">Contact us</h1>
+                    <div style="width: 50px; height: 2px; background-color: #f7444e"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*</section>*@
+    <!-- end inner page section -->
+    <!-- why section -->
+    <section class="why_section layout_padding">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="full">
+                        <form action="index.html">
+                            <fieldset>
+                                <input type="text" placeholder="Enter your full name" name="name" required />
+                                <input type="email" placeholder="Enter your email address" name="email" required />
+                                <input type="text" placeholder="Enter subject" name="subject" required />
+                                <textarea placeholder="Enter your message" required></textarea>
+                                <input type="submit" value="Submit" />
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end why section -->
+    <!-- arrival section -->
+    <section class="arrival_section" style="opacity: 0.9">
+        <div class="container" style="height:120px ; padding-top:15px ; ">
+
+
+
+            <div class="col-md-12 text-center" style="margin:20px">
+                <ul class="list-unstyled mb-0" style="display:flex ; justify-content:space-around">
+                    <li>
+                        <i class=" fa fa-map-marker " aria-hidden="true" style="font-size: xx-large;"></i>
+                        <p>San Francisco, CA 94126, USA</p>
+                    </li>
+
+                    <li>
+                        <i class=" fa fa-phone " aria-hidden="true" style="font-size: xx-large; "></i>
+                        <p>+ 01 234 567 89</p>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-envelope" aria-hidden="true" style="font-size: xx-large; "></i>
+                        <p>contact@mdbootstrap.com</p>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+    </section>
+    <!-- end arrival section -->
+  
+   
+</body>
