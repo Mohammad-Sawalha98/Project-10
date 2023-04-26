@@ -58,25 +58,51 @@ namespace Project_10.Controllers
       
 
 
-        public ActionResult Buy(int id)
+        public ActionResult Buy(int id,string Quantity)
         {
 
             if(User.Identity.GetUserId()  == null)
-                return RedirectToAction("Login" , "Account", "" );
+                return RedirectToAction("Login" , "Account", "");
             string email = User.Identity.GetUserName();
+            int customerId = db.Customers.Where(x=>x.CustomerEmail == email).FirstOrDefault().CustomerId;
+            var customerCart = db.Carts.Where(x => x.CustomerId == customerId).ToList();
+            bool there = false;
+            foreach (var item in customerCart)
+            {
+                if (item.ProductId == id)
+                {
+                    there = true;
+                }
+            }
+
 
             Customer customer = (Customer) db.Customers.SingleOrDefault(c => c.CustomerEmail == email);
             Product product = db.Products.Find(id);
             int? price = Convert.ToInt32(product.price);
-            var Cart = new Cart() {
-                CustomerId = customer.CustomerId,
-                IsCheckedOut = false ,
-                ProductId = id ,
-                Quantity = 1,
-                TotalPrice = price  
+
+            if (there)
+            {
+                var updatedQuantity = customerCart.Where(x => x.ProductId == id).FirstOrDefault();
+                updatedQuantity.ProductId = id;
+                updatedQuantity.CustomerId = customerId;
+                updatedQuantity.Quantity += int.Parse(Quantity);
+                updatedQuantity.TotalPrice += price;
                 
-            };
-            db.Carts.Add(Cart);
+            }
+            else if (!there)
+            {
+                var Cart = new Cart()
+                {
+                    CustomerId = customer.CustomerId,
+                    IsCheckedOut = false,
+                    ProductId = id,
+                    Quantity = int.Parse(Quantity),
+                    TotalPrice = price ,
+
+                };
+                db.Carts.Add(Cart);
+            }
+            
             db.SaveChanges();
           
             return RedirectToAction("Index2");
@@ -115,7 +141,6 @@ namespace Project_10.Controllers
                 newOrder.Address_one = Address_one;
                 newOrder.Address_two = Address_two;
                 newOrder.Payment_Method = Payment_Method;
-
                 db.Orders.Add(newOrder);
                  db.SaveChanges();
 
@@ -132,18 +157,7 @@ namespace Project_10.Controllers
 
 
 
-            int totalAmount1 = 0;
-
-            foreach (var item in cart)
-            {
-                totalAmount1 += Convert.ToInt32( item.TotalPrice);
-
-            }
-
-            newOrder.totalAmount = totalAmount1;
-            db.Entry(newOrder).State = EntityState.Modified;
-            db.SaveChanges();
-
+           
             Cart newCart = new Cart();
             //Order_Details order_Details = new Order_Details();
 
@@ -156,6 +170,25 @@ namespace Project_10.Controllers
                 order_Details.Quantity = item.Quantity;
                 db.Order_Details.Add(order_Details);
                 await db.SaveChangesAsync();
+
+
+
+                int totalAmount1 = 0;
+
+                foreach (var item2 in cart)
+                {
+                    totalAmount1 += Convert.ToInt32(item2.TotalPrice) * Convert.ToInt32(item.Quantity);
+
+                }
+
+                newOrder.totalAmount = totalAmount1;
+                //newOrder.OrderPrice = Convert.ToInt32(Quantity * totalAmount1);
+
+                db.Entry(newOrder).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+
                 db.Carts.Remove(item);
             }
             await db.SaveChangesAsync();

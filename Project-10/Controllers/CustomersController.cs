@@ -15,9 +15,18 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult Index(string Search, string email , string city)
         {
             var customers = db.Customers.Include(c => c.City);
+
+            if (email == "email")
+            {
+                customers = customers.Where(x => x.CustomerEmail.Contains(Search));
+            }
+            else if (city == "city")
+            {
+                customers = customers.Where(x => x.City.CityName.Contains(Search));
+            }
             return View(customers.ToList());
         }
 

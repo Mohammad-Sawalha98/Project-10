@@ -1399,6 +1399,11 @@ https://preview.hasthemes.com/xoss-preview/xoss/index.html
 }
 
 
+.about_container{
+    display:flex;
+    flex-wrap:wrap;
+}
+
 
 
 

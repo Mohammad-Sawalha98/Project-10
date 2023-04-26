@@ -7,11 +7,18 @@
 
 
 <section class="is-hero-bar">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <h1 class="title">
-            Search section will be here
-        </h1>
-        <button class="button light">Button</button>
+    <div class="flex flex-col  md:flex-row items-center justify-between space-y-6 md:space-y-0">
+
+            @using (Html.BeginForm())
+            {
+                <input id="email" name="email" type="radio" value="email" /><span>Email &nbsp; &nbsp;</span>
+                <input id="city" name="city" type="radio" value="city" /><span>City &nbsp; &nbsp;</span>
+
+
+                <input style="border-radius:5px; border:1px solid black; height:40px" id="Search" name="Search" type="text" value="" placeholder="Type Here..." /><span>&nbsp;&nbsp;</span>
+                <input type="submit" class="btn btn-outline-dark" id="name" name="name" value="Search" style="background-color:gray; color:white ; border-radius:5px; width:100px; height:40px" />
+            }
+
     </div>
 </section>
 
@@ -25,7 +32,7 @@
             </p>
 
             <p class="card-header-icon">
-                @Html.ActionLink("Create New", "Create")
+                @*@Html.ActionLink("Create New", "Create")*@
             </p>
             <a href="/Customers/Index" class="card-header-icon">
                 <span class="icon"><i class="mdi mdi-reload"></i></span>
@@ -83,7 +90,7 @@
                             </td>
                             <td class="actions-cell">
                                 
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
+                                    @*@Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |*@
                                     @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
                                     @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
                                
@@ -104,3 +111,5 @@
             </div>
         </div>
     </div>
+    
+    </section>

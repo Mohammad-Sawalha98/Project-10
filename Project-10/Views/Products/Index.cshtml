@@ -9,13 +9,22 @@
 
 
 <section class="is-hero-bar">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <h1 class="title">
-            Search section will be here
-        </h1>
-        <button class="button light">Button</button>
+    <div class="flex flex-col  md:flex-row items-center justify-between space-y-6 md:space-y-0">
+
+        @using (Html.BeginForm())
+        {
+            <input id="ProductName" name="ProductName" type="radio" value="ProductName" /><span>Product Name &nbsp; &nbsp;</span>
+            <input id="ProductPrice" name="ProductPrice" type="radio" value="ProductPrice" /><span>Product Price &nbsp; &nbsp;</span>
+            <input id="Occasion" name="Occasion" type="radio" value="Occasion" /><span>Occasion &nbsp; &nbsp;</span>
+
+
+            <input style="border-radius:5px; border:1px solid black; height:40px" id="Search" name="Search" type="text" value="" placeholder="Type Here..." /><span>&nbsp;&nbsp;</span>
+            <input type="submit" class="btn btn-outline-dark" id="name" name="name" value="Search" style="background-color:gray; color:white ; border-radius:5px; width:100px; height:40px" />
+        }
+
     </div>
 </section>
+
 
 <section class="section main-section">
 
@@ -37,7 +46,7 @@
             <table>
                 <thead>
                     <tr>
-                   
+
                         <th>
                             @Html.DisplayNameFor(model => model.ProductName)
                         </th>
@@ -97,7 +106,16 @@
                                 @Html.DisplayFor(modelItem => item.Quantity)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Gender)
+                                @*@Html.DisplayFor(modelItem => item.Gender)*@
+
+                                @if (item.Gender == true)
+                                {
+                                    <span>Male</span>
+                                }
+                                else
+                                {
+                                    <span>Female</span>
+                                }
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Category.CategoryName)

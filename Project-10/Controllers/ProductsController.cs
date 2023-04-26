@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Project_10.Models;
@@ -17,9 +18,32 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string Search, string ProductName, string ProductPrice , string Occasion)
         {
+            decimal searchPrice;
             var products = db.Products.Include(p => p.Category).Include(p => p.Occasion);
+
+            if (ProductName == "ProductName")
+            {
+                products = products.Where(x => x.ProductName.Contains(Search));
+            }
+
+            //else if (decimal.TryParse(Search, out searchPrice) && ProductPrice == "ProductPrice")
+            // {
+            //     products = products.Where(x => x.price == searchPrice);
+            // }
+
+            
+           else if (decimal.TryParse(Search, out searchPrice) && ProductPrice == "ProductPrice")
+            {
+                products = products.Where(x => x.price >= searchPrice && x.price <= (searchPrice + 10));
+            }
+
+            else if (Occasion == "Occasion")
+            {
+                products = products.Where(x => x.Occasion.OccasionName.Contains(Search));
+            }
+
             return View(products.ToList());
         }
 

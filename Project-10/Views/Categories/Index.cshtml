@@ -10,11 +10,17 @@
 
 
 <section class="is-hero-bar">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <h1 class="title">
-            Search section will be here
-        </h1>
-        <button class="button light">Button</button>
+    <div class="flex flex-col  md:flex-row items-center justify-between space-y-6 md:space-y-0">
+
+        @using (Html.BeginForm())
+        {
+            <input id="CategoryName" name="CategoryName" type="radio" value="CategoryName" /><span>Category Name &nbsp; &nbsp;</span>
+
+
+            <input style="border-radius:5px; border:1px solid black; height:40px" id="Search" name="Search" type="text" value="" placeholder="Type Here..." /><span>&nbsp;&nbsp;</span>
+            <input type="submit" class="btn btn-outline-dark" id="name" name="name" value="Search" style="background-color:gray; color:white ; border-radius:5px; width:100px; height:40px" />
+        }
+
     </div>
 </section>
 
@@ -28,7 +34,7 @@
             </p>
 
             <p class="card-header-icon">
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
             </p>
             <a href="/Categories/Index" class="card-header-icon">
                 <span class="icon"><i class="mdi mdi-reload"></i></span>
@@ -75,32 +81,32 @@
                                         <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
                                     </div>
                                 </td>*@
-                        <td data-label="Name">
-                            @Html.DisplayFor(modelItem => item.CategoryName)
-                        </td>
+                            <td data-label="Name">
+                                @Html.DisplayFor(modelItem => item.CategoryName)
+                            </td>
 
-                        <td data-label="Created">
-                            @Html.DisplayFor(modelItem => item.CategoryDescription)
+                            <td data-label="Created">
+                                @Html.DisplayFor(modelItem => item.CategoryDescription)
 
-                        </td>
+                            </td>
 
-                        <td data-label="City">
+                            <td data-label="City">
 
-                            @*@Html.DisplayFor(modelItem => item.CategoryImage)*@
-                            <div class="d-flex px-2 py-1">
-                                <div>
+                                @*@Html.DisplayFor(modelItem => item.CategoryImage)*@
+                                <div class="d-flex px-2 py-1">
+                                    <div>
 
-                                    <img name="CategoryImage" id="CategoryImage" src="~/Images/@Html.DisplayFor(modelItem => item.CategoryImage)" height="50px" width="60px" />
+                                        <img name="CategoryImage" id="CategoryImage" src="~/Images/@Html.DisplayFor(modelItem => item.CategoryImage)" height="50px" width="60px" />
+                                    </div>
+
                                 </div>
 
-                            </div>
 
-
-                        </td>
+                            </td>
                             <td class="actions-cell">
 
-                                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }, new { @class = "btn btn-secondary glyphicon glyphicon-pencil" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }, new { @class = "btn btn-info" }) |
                                 @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
                             </td>
                         </tr>
@@ -120,3 +126,4 @@
         </div>
     </div>
 
+    </section>

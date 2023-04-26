@@ -2,85 +2,115 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminCRUD.cshtml";
+
+
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-6 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8" style="margin-top:20px !important">
+                            <div class="card-header pb-0 text-left bg-transparent">
+                                <h3 class="font-weight-bolder text-info text-gradient">Details</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductDescription)
-        </dt>
+                            </div>
+                            <!-- Form start -->
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductDescription)
-        </dd>
+                            <div>
+                                <h4>Product</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ProductName)
+                                    </dt>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ProductName)
+                                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductImage)
-        </dd>*@
-        <div class="mb-3">
-            <label>Category Image</label> &emsp;&emsp;
-            <img src="~/images/@Html.DisplayFor(model => model.ProductImage) " height="50px" width="60px" />
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ProductDescription)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ProductDescription)
+                                    </dd>
+
+                                    @*<dt>
+                                            @Html.DisplayNameFor(model => model.ProductImage)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.ProductImage)
+                                        </dd>*@
+                                <div class="mb-3">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ProductImage)
+                                    </dt> &emsp;&emsp;
+                                    <img src="~/images/@Html.DisplayFor(model => model.ProductImage) " height="90px" width="90px" />
+                                </div>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.price)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.price)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Quantity)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Gender)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Gender)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Category.CategoryName)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Category.CategoryName)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Occasion.OccasionName)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Occasion.OccasionName)
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="text-center">
+                                <a href="~/Products/Index" class="btn bg-gradient-dark w-100">
+                                    Back to List
+                                </a>
+
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
+    </section>
+</main>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Occasion.OccasionName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Occasion.OccasionName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

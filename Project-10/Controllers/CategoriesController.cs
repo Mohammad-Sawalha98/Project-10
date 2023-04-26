@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Project_10.Models;
 
@@ -16,12 +17,32 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Categories
-        public ActionResult Index()
+        //public ActionResult Index(string Search, string CategoryName)
+        //{
+        //    var categories = db.Categories.Include(c => c.CategoryName);
+
+
+        //    if (CategoryName == "CategoryName")
+        //    {
+        //        categories = categories.Where(x => x.CategoryName.Contains(Search));
+        //    }
+
+        //    return View(db.Categories.ToList());
+        //}
+
+
+        public ActionResult Index(string Search, string CategoryName)
         {
-            return View(db.Categories.ToList());
+            var categories = db.Categories.AsQueryable();
+
+            if (CategoryName == "CategoryName")
+            {
+                categories = categories.Where(x => x.CategoryName.Contains(Search));
+            }
+
+            return View(categories.ToList());
         }
 
-       
 
         // GET: Categories/Details/5
         public ActionResult Details(int? id)

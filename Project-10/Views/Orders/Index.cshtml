@@ -8,112 +8,168 @@
 
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isCheckout)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.orderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address_one)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address_two)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payment_Method)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Messege)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
-        <th></th>
-    </tr>
+<section class="is-hero-bar">
+    <div class="flex flex-col  md:flex-row items-center justify-between space-y-6 md:space-y-0">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isCheckout)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.orderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address_one)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address_two)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payment_Method)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Messege)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
-        </td>
-    </tr>
-}
+        @using (Html.BeginForm())
+        {
+            <input id="FirstName" name="FirstName" type="radio" value="FirstName" /><span>First Name &nbsp; &nbsp;</span>
+            <input id="city" name="city" type="radio" value="city" /><span>City &nbsp; &nbsp;</span>
 
-</table>
+
+            <input style="border-radius:5px; border:1px solid black; height:40px" id="Search" name="Search" type="text" value="" placeholder="Type Here..." /><span>&nbsp;&nbsp;</span>
+            <input type="submit" class="btn btn-outline-dark" id="name" name="name" value="Search" style="background-color:gray; color:white ; border-radius:5px; width:100px; height:40px" />
+        }
+
+    </div>
+</section>
+
+<section class="section main-section">
+
+    <div class="card has-table">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                Orders
+            </p>
+
+            <p class="card-header-icon">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <a href="/Orders/Index" class="card-header-icon">
+                <span class="icon"><i class="mdi mdi-reload"></i></span>
+            </a>
+        </header>
+        <div class="card-content">
+
+
+            <table class="table">
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.OrderPrice)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.isCheckout)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.totalAmount)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.orderDate)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address_one)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Address_two)
+                        </th>*@
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.phoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Payment_Method)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Messege)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+                        </th>*@
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.OrderPrice)
+                            </td>*@
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.isCheckout)*@
+                            @if (item.isCheckout == true)
+                            {
+                                <span>Done</span>
+                            }
+                            else
+                            {
+                                <span>Not Yet</span>
+                            }
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.totalAmount)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.orderDate)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address_one)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Address_two)
+                            </td>*@
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Payment_Method)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Messege)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                            </td>*@
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            
+
+            <div class="table-pagination">
+                <div class="flex items-center justify-between">
+                    <div class="buttons">
+                        <button type="button" class="button active">1</button>
+                        <button type="button" class="button">2</button>
+                        <button type="button" class="button">3</button>
+                    </div>
+                    <small>Page 1 of 3</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>

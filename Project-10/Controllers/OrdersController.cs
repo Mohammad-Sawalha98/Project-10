@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Project_10.Models;
 
@@ -15,9 +16,19 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(string Search, string FirstName, string city)
         {
             var orders = db.Orders.Include(o => o.AspNetUser);
+
+            if (FirstName == "FirstName")
+            {
+                orders = orders.Where(x => x.FirstName.Contains(Search));
+            }
+            else if (city == "city")
+            {
+                orders = orders.Where(x => x.City.Contains(Search));
+            }
+
             return View(orders.ToList());
         }
 

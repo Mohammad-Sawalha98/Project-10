@@ -184,7 +184,9 @@
                         
                        
                     }*@ 
-                 
+                 @{ 
+                     decimal total = 0;
+                 }
                     @foreach (var item in Model)
                     {
 
@@ -212,10 +214,13 @@
                                                     </div>
                                                     <div class="col-md-2 quantity">
                                                         <label for="quantity">Quantity:</label> @*@item.Quantity*@
-                                                        <input id="quantity" type="number" value="1" class="form-control quantity-input">
+                                                        <input id="quantity" type="number"  class="form-control quantity-input" value="@item.Quantity">
                                                     </div>
                                                     <div class="col-md-2 price">
-                                                        <span>Price @item.Product.price $</span>
+                                                        @{ 
+                                                            var price = item.Product.price * item.Quantity;
+                                                        }
+                                                        <span>Price @price $</span>
                                                     </div>
                                                     <div class="col-md-3 price">
 
@@ -239,6 +244,7 @@
                             </div>
                         </div>
 
+                        total += Convert.ToDecimal(price); 
                     }
 
 
@@ -248,10 +254,10 @@
             <div class="col-md-12 col-lg-3">
                 <div class="summary">
                     <h3>Summary</h3>
-                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">$@total</span></div>
                     <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
                     <div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
-                    <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+                    <div class="summary-item"><span class="text">Total</span><span class="price">$@total</span></div>
                     @*<button type="button" class="btn  btn-lg btn-block" style="background-color: #f7444e">Checkout</button>*@
                     <a href="~/Carts/CheckOut/@ViewBag.Id" class="btn  btn-lg btn-block" style="background-color: #f7444e">Check Out</a>
                 </div>
