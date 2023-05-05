@@ -189,26 +189,19 @@
     <EntitySetMapping Name="Reviews">
       <EntityTypeMapping TypeName="Project10Model.Review">
         <MappingFragment StoreEntitySet="Reviews">
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SpetialOrders">
-      <EntityTypeMapping TypeName="Project10Model.SpetialOrder">
-        <MappingFragment StoreEntitySet="SpetialOrders">
-          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+    <EntitySetMapping Name="Subscribers">
+      <EntityTypeMapping TypeName="Project10Model.Subscriber">
+        <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,267 @@
+﻿@model Project_10.Models.Order
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Templates/Admin/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/Templates/Admin/assets/img/favicon.png">
+   
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/Templates/Admin/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/Templates/Admin/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/Templates/Admin/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/Templates/Admin/assets/css/soft-ui-dashboard.css" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+    <style>
+        .card {
+            margin-top: 20px;
+            margin-bottom:30px;
+        }
+    </style>
+
+
+
+
+
+    <section class="section main-section">
+
+        <div class="card has-table">
+            <header class="card-header">
+                <p class="card-header-title">
+                    @*<span class="icon"><i class="mdi mdi-account-multiple"></i></span>*@
+                    Statistics
+                </p>
+
+                <p class="card-header-icon">
+                    @*@Html.ActionLink("Create New", "Create")*@
+                </p>
+                <a href="/Statistics/Index2" class="card-header-icon">
+                    <span class="icon"><i class="mdi mdi-reload"></i></span>
+                </a>
+            </header>
+            <div class="card-content">
+
+
+
+                @*<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">*@
+
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Customers</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.customers
+                                                    @*<span class="text-success text-sm font-weight-bolder">+55%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.orders
+                                                    @*<span class="text-success text-sm font-weight-bolder">+3%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Products</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.products
+                                                    @*<span class="text-danger text-sm font-weight-bolder">-2%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Subscribers</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.subscribers
+                                                    @*<span class="text-success text-sm font-weight-bolder">+5%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Reviews</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.reviews
+                                                    @*<span class="text-success text-sm font-weight-bolder">+5%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.totalPrice JOD
+                                                    @*<span class="text-success text-sm font-weight-bolder">+5%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Profits</p>
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    @ViewBag.profits JOD
+                                                    @*<span class="text-success text-sm font-weight-bolder">+5%</span>*@
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                @*</main>*@
+
+
+
+                @*<div class="table-pagination">
+                    <div class="flex items-center justify-between">
+                        <div class="buttons">
+                            <button type="button" class="button active">1</button>
+                            <button type="button" class="button">2</button>
+                            <button type="button" class="button">3</button>
+                        </div>
+                        <small>Page 1 of 3</small>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--   Core JS Files   -->
+    <script src="~/Templates/Admin/assets/js/core/popper.min.js"></script>
+    <script src="~/Templates/Admin/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Templates/Admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/Templates/Admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/Templates/Admin/assets/js/plugins/chartjs.min.js"></script>
+
+
+    <script src="~/Templates/Admin/assets/js/soft-ui-dashboard.min.js"></script>
+</body>
+
+</html>

@@ -19,7 +19,6 @@ namespace Project_10.Models
         {
             this.Carts = new HashSet<Cart>();
             this.Order_Details = new HashSet<Order_Details>();
-            this.Reviews = new HashSet<Review>();
         }
     
         public int ProductId { get; set; }
@@ -38,7 +37,5 @@ namespace Project_10.Models
         public virtual Occasion Occasion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Details> Order_Details { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

@@ -42,7 +42,7 @@ namespace Project_10.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
-        public virtual DbSet<SpetialOrder> SpetialOrders { get; set; }
+        public virtual DbSet<Subscriber> Subscribers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

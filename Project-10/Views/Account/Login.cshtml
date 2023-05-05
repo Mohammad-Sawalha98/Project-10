@@ -25,6 +25,7 @@
                 <form action="/Account/Login" class="form-horizontal" method="post" role="form" style="width: 23rem; margin-top: 100px">
 
 
+                    @*@Html.AntiForgeryToken()*@
 
 
                     <input name="__RequestVerificationToken" type="hidden" value="GfG6m4ern-40ZnUEE8c1mltb0Hi-j5SIQKimbO11pW_Sa-8yqyA2iZBHQZXladjgqs1CEJ5al8gFGNbdsmgdH4GQdX4hLMGGlFWzQTffjJ41" />
@@ -35,7 +36,7 @@
                     <div class="form-group">
                         <label class="form-label" for="Email">Email</label>
                         <div class="form-outline mb-4">
-                            <input class="form-control form-control-lg"  data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="" />
+                            <input class="form-control form-control-lg" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                         </div>
                     </div>
@@ -54,11 +55,11 @@
                     </div>
                     <div class="form-group">
                         @*<div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
-                                <label for="RememberMe">Remember me?</label>
-                            </div>
-                        </div>*@
+                <div class="checkbox">
+                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                    <label for="RememberMe">Remember me?</label>
+                </div>
+            </div>*@
                     </div>
                     <div class="form-group">
                         <div class="form-outline mb-4">

@@ -11,7 +11,41 @@
 
 }
 
-<h2>checkOut</h2>
+@{ 
+    Project_10.Models.Project10Entities db = new Project_10.Models.Project10Entities();
+    string email = User.Identity.Name;
+    var customer = db.Customers.Where(x => x.CustomerEmail == email).FirstOrDefault();
+    var order = db.Orders.Where(x => x.email == email).OrderByDescending(x=>x.orderDate).FirstOrDefault();
+    //var details = db.Order_Details.Where(x => x.OrderId == order.OrderId).FirstOrDefault();
+    string[] name = customer.CustomerName.Split();
+    string firstname = name[0];
+    string lastname = "";
+    string address1 = "";
+    int phone= 0;
+    string address2 = "";
+    try
+    {
+        if (name[1] != null)
+        {
+            lastname = name[1];
+        }
+}
+catch { }
+
+
+    if (order.Address_one != null)
+    {
+        address1 = order.Address_one;
+    }
+    if (order.Address_two != null)
+    {
+        address2 = order.Address_two;
+    }
+    if (order.phoneNumber != null)
+    {
+        phone = Convert.ToInt32(order.phoneNumber);
+    }
+}
 
 
 <!--Checkout Content-->
@@ -34,33 +68,33 @@
                                     <div class="row">
                                         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                             <label for="input-firstname" class="form-label">First Name <span class="required">*</span></label>
-                                            <input name="FirstName" value="" id="input-firstname" type="text" required="" class="form-control">
+                                            <input name="FirstName"  id="input-firstname" type="text" required="" class="form-control" value="@firstname">
                                         </div>
                                         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                             <label for="input-lastname" class="form-label">Last Name <span class="required">*</span></label>
-                                            <input name="LastName" value="" id="input-lastname" type="text" required="" class="form-control">
+                                            <input name="LastName" value="@lastname" id="input-lastname" type="text" required="" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                             <label for="input-email" class="form-label">E-Mail <span class="required">*</span></label>
-                                            <input name="email" value="" id="input-email" type="email" required="" class="form-control">
+                                            <input name="email" value="@customer.CustomerEmail" id="input-email" type="email" required="" class="form-control">
                                         </div>
                                         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                             <label for="input-telephone" class="form-label">Phone <span class="required">*</span></label>
-                                            <input name="phoneNumber" id="input-telephone" type="text" class="form-control">
+                                            <input name="phoneNumber" id="input-telephone" type="text" class="form-control" value="@phone">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 mb-2">
                                             <label for="input-address-1" class="form-label">Street address <span class="required">*</span></label>
-                                            <input name="Address_one" value="" id="input-address-1" type="text" required="" placeholder="Street address" class="form-control">
+                                            <input name="Address_one" value="@address1" id="input-address-1" type="text" required="" placeholder="Street address" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 mb-2">
-                                            <input name="Address_two" value="" id="input-address-2" type="text" required="" placeholder="Apartment, suite, unit etc. (optional)" class="form-control">
+                                            <input name="Address_two" value="@address2" id="input-address-2" type="text" required="" placeholder="Apartment, suite, unit etc. (optional)" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -71,7 +105,7 @@
 
                                         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 mb-2">
                                             <label for="address_province" class="form-label">Town / City <span class="required">*</span></label>
-                                            <select id="address_province" name="City" data-default="" class="form-control">
+                                            <select id="address_province" name="City" data-default="" class="form-control" >
                                                 <option value="0" label="Select a state" selected="selected">Select a city</option>
                                                 <option value="Irbid">Irbid</option>
                                                 <option value="Ajloun">Ajloun</option>
@@ -80,7 +114,6 @@
                                                 <option value="Balqa">Balqa</option>
                                                 <option value="Amman">Amman</option>
                                                 <option value="Zarqa">Zarqa</option>
-
                                                 <option value="Karak">Karak</option>
                                                 <option value="Tafilah">Tafilah</option>
                                                 <option value="Ma'an">Ma'an</option>

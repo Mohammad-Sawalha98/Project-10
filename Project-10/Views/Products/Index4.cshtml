@@ -5,6 +5,13 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 
 }
+<style>
+    .Product-Info{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-around;
+    }
+</style>
 
     @foreach (var item in Model)
     {
@@ -13,10 +20,12 @@
         <section class="py-5">
             <div class="container " style="text-align:center">
                 <div class="row  align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="~/Images/@item.ProductImage" alt="..." /></div>
+                    <div class="col-md-5"><img class="card-img-top mb-5 mb-md-0" src="~/Images/@item.ProductImage" alt="..." /></div>
                     @*<img src="~/Images/@item.ProductImage" style="height: 290px; width: 96%; border-radius: 10px " alt="">*@
                 <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder"> @item.ProductName</h1>
+                    <div class="Product-Info">
+                        <h4 class="col-md-4">Product Name</h4>
+                   <h1 class="col-md-3"> @item.ProductName</h1>
                     <p class="lead">@item.ProductDescription</p> <br />
                     <div class="fs-5 mb-5">
                         <span> @item.price $</span>
@@ -38,8 +47,12 @@
                         <button type="submit" class="btn btn-primary mt-3">Add To Cart</button>
 
                     }
-</div>
+                        
+                    </div>
                 </div>
+
+
+                    </div>
             </div>
         </section>
 

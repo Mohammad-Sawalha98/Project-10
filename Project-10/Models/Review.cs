@@ -15,12 +15,9 @@ namespace Project_10.Models
     public partial class Review
     {
         public int ReviewId { get; set; }
-        public string Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
         public string Comment { get; set; }
-        public Nullable<int> Rating { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Product Product { get; set; }
+        public Nullable<bool> flag { get; set; }
     }
 }

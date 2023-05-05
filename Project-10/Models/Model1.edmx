@@ -183,24 +183,17 @@
             <PropertyRef Name="ReviewId" />
           </Key>
           <Property Name="ReviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Id" Type="nvarchar" MaxLength="128" />
-          <Property Name="ProductId" Type="int" />
-          <Property Name="Comment" Type="varchar" MaxLength="255" />
-          <Property Name="Rating" Type="int" />
-        </EntityType>
-        <EntityType Name="SpetialOrders">
-          <Key>
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Type" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Comment" Type="varchar(max)" />
-          <Property Name="Image" Type="varchar" MaxLength="255" />
-          <Property Name="Message" Type="varchar(max)" />
-          <Property Name="Status" Type="int" />
-          <Property Name="Address" Type="varchar(max)" />
-          <Property Name="Price" Type="int" />
-          <Property Name="CategoryId" Type="int" />
+          <Property Name="flag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -296,42 +289,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reviews__Id__6E01572D">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reviews">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reviews__Product__6EF57B66">
-          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
-          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Reviews">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SpetialOr__Categ__05D8E0BE">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="SpetialOrders" Type="Self.SpetialOrders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="SpetialOrders">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -418,7 +375,7 @@
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SpetialOrders" EntityType="Self.SpetialOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Address__Id__02FC7413" Association="Self.FK__Address__Id__02FC7413">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -447,18 +404,6 @@
           <AssociationSet Name="FK__Products__Occasi__4BAC3F29" Association="Self.FK__Products__Occasi__4BAC3F29">
             <End Role="Occasions" EntitySet="Occasions" />
             <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reviews__Id__6E01572D" Association="Self.FK__Reviews__Id__6E01572D">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Reviews" EntitySet="Reviews" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reviews__Product__6EF57B66" Association="Self.FK__Reviews__Product__6EF57B66">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Reviews" EntitySet="Reviews" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SpetialOr__Categ__05D8E0BE" Association="Self.FK__SpetialOr__Categ__05D8E0BE">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="SpetialOrders" EntitySet="SpetialOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -503,7 +448,7 @@
           <EntitySet Name="Orders" EntityType="Project10Model.Order" />
           <EntitySet Name="Products" EntityType="Project10Model.Product" />
           <EntitySet Name="Reviews" EntityType="Project10Model.Review" />
-          <EntitySet Name="SpetialOrders" EntityType="Project10Model.SpetialOrder" />
+          <EntitySet Name="Subscribers" EntityType="Project10Model.Subscriber" />
           <EntitySet Name="sysdiagrams" EntityType="Project10Model.sysdiagram" />
           <AssociationSet Name="FK__Address__Id__02FC7413" Association="Project10Model.FK__Address__Id__02FC7413">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -525,10 +470,6 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRole" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reviews__Id__6E01572D" Association="Project10Model.FK__Reviews__Id__6E01572D">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="Review" EntitySet="Reviews" />
-          </AssociationSet>
           <AssociationSet Name="FK_Orders_AspNetUsers" Association="Project10Model.FK_Orders_AspNetUsers">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Order" EntitySet="Orders" />
@@ -545,10 +486,6 @@
             <End Role="Category" EntitySet="Categories" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK__SpetialOr__Categ__05D8E0BE" Association="Project10Model.FK__SpetialOr__Categ__05D8E0BE">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="SpetialOrder" EntitySet="SpetialOrders" />
-          </AssociationSet>
           <AssociationSet Name="FK__Customers__CityI__0D7A0286" Association="Project10Model.FK__Customers__CityI__0D7A0286">
             <End Role="City" EntitySet="Cities" />
             <End Role="Customer" EntitySet="Customers" />
@@ -560,10 +497,6 @@
           <AssociationSet Name="FK__orderItem__Produ__628FA481" Association="Project10Model.FK__orderItem__Produ__628FA481">
             <End Role="Product" EntitySet="Products" />
             <End Role="Order_Details" EntitySet="Order_Details" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reviews__Product__6EF57B66" Association="Project10Model.FK__Reviews__Product__6EF57B66">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Review" EntitySet="Reviews" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -650,7 +583,6 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Project10Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Project10Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="AspNetUserRoles" Relationship="Project10Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserRole" />
-          <NavigationProperty Name="Reviews" Relationship="Project10Model.FK__Reviews__Id__6E01572D" FromRole="AspNetUser" ToRole="Review" />
           <NavigationProperty Name="Orders" Relationship="Project10Model.FK_Orders_AspNetUsers" FromRole="AspNetUser" ToRole="Order" />
         </EntityType>
         <EntityType Name="Cart">
@@ -675,7 +607,6 @@
           <Property Name="CategoryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CategoryImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Products" Relationship="Project10Model.FK__Products__Catego__4AB81AF0" FromRole="Category" ToRole="Product" />
-          <NavigationProperty Name="SpetialOrders" Relationship="Project10Model.FK__SpetialOr__Categ__05D8E0BE" FromRole="Category" ToRole="SpetialOrder" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -764,34 +695,23 @@
           <NavigationProperty Name="Category" Relationship="Project10Model.FK__Products__Catego__4AB81AF0" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Occasion" Relationship="Project10Model.FK__Products__Occasi__4BAC3F29" FromRole="Product" ToRole="Occasion" />
           <NavigationProperty Name="Order_Details" Relationship="Project10Model.FK__orderItem__Produ__628FA481" FromRole="Product" ToRole="Order_Details" />
-          <NavigationProperty Name="Reviews" Relationship="Project10Model.FK__Reviews__Product__6EF57B66" FromRole="Product" ToRole="Review" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
             <PropertyRef Name="ReviewId" />
           </Key>
           <Property Name="ReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProductId" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Rating" Type="Int32" />
-          <NavigationProperty Name="AspNetUser" Relationship="Project10Model.FK__Reviews__Id__6E01572D" FromRole="Review" ToRole="AspNetUser" />
-          <NavigationProperty Name="Product" Relationship="Project10Model.FK__Reviews__Product__6EF57B66" FromRole="Review" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="SpetialOrder">
-          <Key>
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Int32" />
-          <Property Name="CategoryId" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="Project10Model.FK__SpetialOr__Categ__05D8E0BE" FromRole="SpetialOrder" ToRole="Category" />
+          <Property Name="flag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -871,18 +791,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reviews__Id__6E01572D">
-          <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
-          <End Type="Project10Model.Review" Role="Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Review">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Orders_AspNetUsers">
           <End Type="Project10Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="Project10Model.Order" Role="Order" Multiplicity="*" />
@@ -931,18 +839,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SpetialOr__Categ__05D8E0BE">
-          <End Type="Project10Model.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="Project10Model.SpetialOrder" Role="SpetialOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="SpetialOrder">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Customers__CityI__0D7A0286">
           <End Type="Project10Model.City" Role="City" Multiplicity="0..1" />
           <End Type="Project10Model.Customer" Role="Customer" Multiplicity="*" />
@@ -975,18 +871,6 @@
               <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="Order_Details">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reviews__Product__6EF57B66">
-          <End Type="Project10Model.Product" Role="Product" Multiplicity="0..1" />
-          <End Type="Project10Model.Review" Role="Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Review">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1185,26 +1069,19 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="Project10Model.Review">
               <MappingFragment StoreEntitySet="Reviews">
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SpetialOrders">
-            <EntityTypeMapping TypeName="Project10Model.SpetialOrder">
-              <MappingFragment StoreEntitySet="SpetialOrders">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="Project10Model.Subscriber">
+              <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

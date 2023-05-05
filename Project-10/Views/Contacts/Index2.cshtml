@@ -7,7 +7,7 @@
 
 
 
-<body class="sub_page" style="background-image: url('../../images/about_background.png');  ">
+<body class="sub_page" style="background-image: url('../../images/contact3.jpg'); background-size:contain;  ">
 
   
     <!-- inner page section -->
@@ -18,7 +18,19 @@
             <div class="col-md-12">
                 <div class="full" style="display:flex ; flex-direction:column ; align-items:center">
                     <h1 style="color: black">Contact us</h1>
-                    <div style="width: 50px; height: 2px; background-color: #f7444e"></div>
+                    <div style="width: 50px; height: 2px; background-color: #f7444e"></div> <br />
+
+                    <div class="col-md-7" style="background-color: #EEEEEE; padding:15px ; border-radius:7px ">
+                        <p>
+                            Welcome to our gift website! We are excited to help you find the perfect gift for any occasion.
+                            If you have any questions or comments, please don't hesitate to contact us.
+                            Our friendly and knowledgeable customer service team is here to assist you in any way we can.
+                            You can reach us by phone, email, or by filling out the contact form on this page.
+                            We look forward to hearing from you and helping you make someone's day with a thoughtful and unique gift.
+                        </p>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -31,16 +43,20 @@
 
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <div class="full">
-                        <form action="index.html">
-                            <fieldset>
-                                <input type="text" placeholder="Enter your full name" name="name" required />
-                                <input type="email" placeholder="Enter your email address" name="email" required />
-                                <input type="text" placeholder="Enter subject" name="subject" required />
-                                <textarea placeholder="Enter your message" required></textarea>
-                                <input type="submit" value="Submit" />
-                            </fieldset>
-                        </form>
+                    <div class="full" >
+                        @using (Html.BeginForm("Index2", "Contacts", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="text" placeholder="Enter your full name" name="name" required style="border-radius:10px" />
+                            <input type="email" placeholder="Enter your email address" name="email" required style="border-radius:10px"/>
+                            <input type="text" placeholder="Enter your phone number" name="phone" required style="border-radius:10px" />
+                            <textarea placeholder="Enter your message" name="message" required style="border-radius:15px"></textarea>
+                            <input type="submit" value="Submit" />
+
+
+                        }
+
+
                     </div>
                 </div>
             </div>
@@ -57,17 +73,17 @@
                 <ul class="list-unstyled mb-0" style="display:flex ; justify-content:space-around">
                     <li>
                         <i class=" fa fa-map-marker " aria-hidden="true" style="font-size: xx-large;"></i>
-                        <p>San Francisco, CA 94126, USA</p>
+                        <p>Irbid , Jordan </p>
                     </li>
 
                     <li>
                         <i class=" fa fa-phone " aria-hidden="true" style="font-size: xx-large; "></i>
-                        <p>+ 01 234 567 89</p>
+                        <p>+962 7780 96862</p>
                     </li>
 
                     <li>
                         <i class="fa fa-envelope" aria-hidden="true" style="font-size: xx-large; "></i>
-                        <p>contact@mdbootstrap.com</p>
+                        <p>Gifty.info@gmail.com</p>
                     </li>
                 </ul>
             </div>

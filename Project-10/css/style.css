@@ -543,15 +543,15 @@ a:focus {
     height: 100%;
     z-index: 3;
 }
-
-.arrival_section .arrival_bg_box img {
-    width: 50%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: top left;
-    object-position: top left;
-}
+    
+    .arrival_section .arrival_bg_box img {
+        width: 50%;
+        height: 100%;
+        /*  -o-object-fit: cover;
+    object-fit: cover;*/
+        -o-object-position: top left;
+        object-position: top left;
+    }
 
 .arrival_section a {
   display: inline-block;

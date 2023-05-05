@@ -34,6 +34,9 @@
 
 
 
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.0/dist/sweetalert2.min.css">
+
 </head>
 
 
@@ -57,15 +60,15 @@
                         </li>
                         @*class="nav-item active"*@
                         @*<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="about.html">About</a></li>
-                <li><a href="testimonial.html">Testimonial</a></li>
-            </ul>
-        </li>*@
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="testimonial.html">Testimonial</a></li>
+                                </ul>
+                            </li>*@
                         @*<li class="nav-item">
-                            <a class="nav-link" href="product.html">Products</a>
-                        </li>*@
+                                <a class="nav-link" href="product.html">Products</a>
+                            </li>*@
                         <li class="nav-item">
                             <a class="nav-link" href="/About/Index">About</a>
                         </li>
@@ -78,7 +81,7 @@
 
 
                         <li class="nav-item">
-                         
+
                             <a class="nav-link" href="~/Carts/Index2">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                 <g>
@@ -140,7 +143,7 @@
                             </button>
                         </form>
                     </ul>
-                  
+
                 </div>
             </nav>
         </div>
@@ -175,7 +178,7 @@
 
     <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
+
 
 
         <!-- footer start -->
@@ -185,12 +188,12 @@
                     <div class="col-md-4">
                         <div class="full">
                             <div class="logo_footer">
-                                <a href="/Home/Index"><img width="210" src="~/Images/Gifty.png" alt="#" /></a>
+                                <a href="/Home/Index"><img width="110" src="~/Images/Gifty.png" alt="#" /></a>
                             </div>
                             <div class="information_f">
-                                <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                                <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                                <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                                <p><strong>ADDRESS:</strong> Wasfi al-tal street, Irbid , Jordan</p>
+
+                                <p><strong>EMAIL:</strong> Gifty@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -202,12 +205,11 @@
                                         <div class="widget_menu">
                                             <h3>Menu</h3>
                                             <ul>
-                                                <li><a href="#">Home</a></li>
-                                                <li><a href="#">About</a></li>
+                                                <li><a href="/Home/Index">Home</a></li>
+                                                <li><a href="/About/Index">About</a></li>
                                                 <li><a href="#">Services</a></li>
                                                 <li><a href="#">Testimonial</a></li>
-                                                <li><a href="#">Blog</a></li>
-                                                <li><a href="#">Contact</a></li>
+                                                <li><a href="/Contacts/Index2">Contact</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -217,10 +219,9 @@
                                             <ul>
                                                 <li><a href="#">Account</a></li>
                                                 <li><a href="#">Checkout</a></li>
-                                                <li><a href="#">Login</a></li>
-                                                <li><a href="#">Register</a></li>
-                                                <li><a href="#">Shopping</a></li>
-                                                <li><a href="#">Widget</a></li>
+                                                <li><a href="/Account/Login">Login</a></li>
+                                                <li><a href="/Account/Register">Register</a></li>
+                                                <li><a href="/Home/Index">Shopping</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -230,7 +231,7 @@
                                 <div class="widget_menu">
                                     <h3>Newsletter</h3>
                                     <div class="information_f">
-                                        <p>Subscribe by our newsletter and get update protidin.</p>
+                                        <p>Subscribe To Get Discount Offers.</p>
                                     </div>
                                     <div class="form_sub">
                                         <form>
@@ -255,13 +256,14 @@
     </div>
 
     @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)*@
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
 </body>
 </html>
 
 
-
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.0/dist/sweetalert2.min.js"></script>
 <!-- jQery -->
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <!-- popper js -->

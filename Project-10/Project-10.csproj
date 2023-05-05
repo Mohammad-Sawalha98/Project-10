@@ -194,6 +194,8 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\Order_DetailsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,7 +268,7 @@
     <Compile Include="Models\Review.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SpetialOrder.cs">
+    <Compile Include="Models\Subscriber.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -419,30 +421,39 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\about.jpg" />
+    <Content Include="Images\About2.jpg" />
     <Content Include="Images\Al-kabeer.jpg" />
     <Content Include="Images\arrival-bg.jpg" />
     <Content Include="Images\arrival-bg.png" />
+    <Content Include="Images\Arrival2.png" />
     <Content Include="Images\art.jpg" />
-    <Content Include="Images\box.jpg" />
+    <Content Include="Images\birthday.jpg" />
     <Content Include="Images\box1.jfif" />
     <Content Include="Images\chocolates.jpg" />
     <Content Include="Images\christmas-composition-branches-with-baubles.jpg" />
     <Content Include="Images\client.jpg" />
     <Content Include="Images\commercial-design.jpg" />
+    <Content Include="Images\contact.jpg" />
+    <Content Include="Images\contact2.jpg" />
+    <Content Include="Images\contact3.jpg" />
     <Content Include="Images\cover.jpeg" />
     <Content Include="Images\empty_cart.png" />
     <Content Include="Images\favicon.png" />
+    <Content Include="Images\First-About.jpg" />
     <Content Include="Images\flowers.jpg" />
     <Content Include="Images\ggift-beautiful-box-with-red-bow-grey-blanket.jpg" />
     <Content Include="Images\Gifty.png" />
+    <Content Include="Images\graduation.jpg" />
     <Content Include="Images\intro-bg.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\member1.jpg" />
+    <Content Include="Images\motherDay.jpg" />
     <Content Include="Images\office-design.jpg" />
+    <Content Include="Images\pre-about.png" />
     <Content Include="Images\Register.jpg" />
     <Content Include="Images\residential-design.jpg" />
     <Content Include="Images\slider-bg.jpg" />
+    <Content Include="Images\slider.jfif" />
     <Content Include="Images\soos.png" />
     <Content Include="Images\soos2.png" />
     <Content Include="Images\team-bg.jpg" />
@@ -1393,6 +1404,15 @@
     <Content Include="Templates\unicat-master\styles\bootstrap4\OneNote Table Of Contents.onetoc2" />
     <Content Include="Templates\unicat-master\styles\OneNote Table Of Contents.onetoc2" />
     <Content Include="Views\Shared\_AdminCRUD.cshtml" />
+    <Content Include="Views\Home\_Testimonial.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Statistics\Index2.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
+    <Content Include="Views\Orders\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

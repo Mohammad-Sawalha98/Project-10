@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Project_10.Models;
 
 namespace Project_10.Controllers
@@ -31,6 +32,17 @@ namespace Project_10.Controllers
 
             return View(orders.ToList());
         }
+
+        public ActionResult Index2()
+        {
+            string email = User.Identity.GetUserName();
+            //int customerId = db.Customers.Where(x => x.CustomerEmail == email).FirstOrDefault().CustomerId;
+            var customerEmail = db.Customers.Where(x => x.CustomerEmail == email).FirstOrDefault();
+            var orders = db.Orders.Where(x => x.email == email);
+
+            return View(orders.ToList());
+        }
+
 
         // GET: Orders/Details/5
         public ActionResult Details(int? id)

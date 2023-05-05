@@ -157,11 +157,13 @@ namespace Project_10.Controllers
 
 
 
-           
-            Cart newCart = new Cart();
+
+            //Cart newCart = new Cart();
             //Order_Details order_Details = new Order_Details();
 
             var orderDetailOrder = db.Orders.Where(x => x.AspNetUser.Email == email).OrderByDescending(x => x.OrderId).FirstOrDefault();
+            int totalAmount1 = 0;
+
             foreach (var item in cart)
             {
                 Order_Details order_Details = new Order_Details();
@@ -173,24 +175,23 @@ namespace Project_10.Controllers
 
 
 
-                int totalAmount1 = 0;
-
-                foreach (var item2 in cart)
-                {
-                    totalAmount1 += Convert.ToInt32(item2.TotalPrice) * Convert.ToInt32(item.Quantity);
-
-                }
-
-                newOrder.totalAmount = totalAmount1;
-                //newOrder.OrderPrice = Convert.ToInt32(Quantity * totalAmount1);
-
-                db.Entry(newOrder).State = EntityState.Modified;
-                db.SaveChanges();
 
 
+                totalAmount1 += Convert.ToInt32(item.TotalPrice) * Convert.ToInt32(item.Quantity);
 
                 db.Carts.Remove(item);
+                
+
             }
+
+            newOrder.totalAmount = totalAmount1;
+            //newOrder.OrderPrice = Convert.ToInt32(Quantity * totalAmount1);
+            db.Entry(newOrder).State = EntityState.Modified;
+            db.SaveChanges();
+
+
+
+
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");

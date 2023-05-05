@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Project_10.Models;
@@ -22,8 +23,32 @@ namespace Project_10.Controllers
 
         public ActionResult Index2()
         {
-            return View(db.Contacts.ToList());
+            var contact = db.Contacts.ToList();
+            return View("Index2" , contact);
         }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index2(string name, string email, string message, int? phone)
+        {
+            Contact NewContact = new Contact();
+            NewContact.Name = name;
+            NewContact.Email = email;
+            NewContact.Message = message;
+            NewContact.phone = phone.HasValue ? phone.Value.ToString() : string.Empty;
+            db.Contacts.Add(NewContact);
+            db.SaveChanges();
+
+            //return View("Index2", contact);
+            return RedirectToAction("Index2", "Contacts");
+
+        }
+
+
+
+
 
         // GET: Contacts/Details/5
         public ActionResult Details(int? id)

@@ -18,7 +18,6 @@ namespace Project_10.Models
         public Category()
         {
             this.Products = new HashSet<Product>();
-            this.SpetialOrders = new HashSet<SpetialOrder>();
         }
     
         public int CategoryId { get; set; }
@@ -28,7 +27,5 @@ namespace Project_10.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SpetialOrder> SpetialOrders { get; set; }
     }
 }
