@@ -13,6 +13,7 @@ namespace Project_10.Controllers
     public class Order_DetailsController : Controller
     {
         private Project10Entities db = new Project10Entities();
+        [Authorize(Roles = "Admin")]
 
         // GET: Order_Details
         public ActionResult Index()

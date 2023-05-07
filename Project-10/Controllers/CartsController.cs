@@ -55,9 +55,9 @@ namespace Project_10.Controllers
         }
 
 
-      
 
 
+     
         public ActionResult Buy(int id,string Quantity)
         {
 
@@ -82,6 +82,7 @@ namespace Project_10.Controllers
 
             if (there)
             {
+
                 var updatedQuantity = customerCart.Where(x => x.ProductId == id).FirstOrDefault();
                 updatedQuantity.ProductId = id;
                 updatedQuantity.CustomerId = customerId;
@@ -148,7 +149,6 @@ namespace Project_10.Controllers
             }
            
 
-            //Order order = new Order();
             Product product = new Product();
 
             var userID = User.Identity.GetUserId();
@@ -157,9 +157,6 @@ namespace Project_10.Controllers
 
 
 
-
-            //Cart newCart = new Cart();
-            //Order_Details order_Details = new Order_Details();
 
             var orderDetailOrder = db.Orders.Where(x => x.AspNetUser.Email == email).OrderByDescending(x => x.OrderId).FirstOrDefault();
             int totalAmount1 = 0;
@@ -198,58 +195,6 @@ namespace Project_10.Controllers
 
         }
 
-
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> CheckOut(string Email, string customerPhone, string address, int postalCode, string city)
-        //{
-        //    //Shipping ship = new Shipping();
-        //    Order order = new Order();
-        //    orderItem orderDetail = new orderItem();
-        //    Product product = new Product();
-
-        //    var email = User.Identity.GetUserName();
-        //    //var shippingInfo = db.Shippings.Where(x => x.userId == id).FirstOrDefault();
-        //    var user = db.Customers.Where(x => x.CustomerEmail == email).FirstOrDefault();
-        //    var cart = db.Carts.Where(x => x.CustomerId == user.CustomerId).ToList();
-
-
-
-
-
-
-
-        //    //order.totalAmount = totalAmount;
-        //    order.AspNetUser.Email = email;
-        //    db.Orders.Add(order);
-        //    await db.SaveChangesAsync();
-
-        //    var orderDetailOrder = db.Orders.Where(x => x.AspNetUser.Email == email).OrderByDescending(x => x.OrderId).FirstOrDefault();
-        //    foreach (var item in cart)
-        //    {
-
-        //        orderItem.orderItemsId = orderDetailOrder.OrderId;
-        //        orderItem.ProductId = item.ProductId;
-        //        orderDetail.quantity = item.quantity;
-        //        orderDetail.price = item.price * item.quantity;
-        //        db.OrderItem.Add(orderDetail);
-
-
-
-
-        //        await db.SaveChangesAsync();
-
-
-
-        //    db.Carts.Remove(item);
-        //}
-        //await db.SaveChangesAsync();
-
-        //    return RedirectToAction("Index", "Home");
-
-        //}
 
 
 

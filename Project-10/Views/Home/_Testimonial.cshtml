@@ -4,76 +4,68 @@
 <section class="client_section layout_padding" id="reviews">
     <div class="container">
         <div class="heading_container heading_center">
-            @ViewBag.trueReviews
+            @*@ViewBag.trueReviews*@
 
             <h2>
                 Customer's Testimonial
             </h2>
         </div>
-        @if (Model != null)
-        {
-           
+      
+            <div id="carouselExample3Controls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @if (Model != null && Model.Any(m => m.flag == true))
+                    {
+                        bool firstActive = true;
+                        foreach (var item in Model.Where(m => m.flag == true))
+                        {
+                            <div class="carousel-item @((firstActive) ? "active" : "")">
+                                <div class="box col-lg-10 mx-auto">
+                                    <div class="img_container">
+                                        <div class="img-box">
+                                            <div class="img_box-inner">
+                                                @*<img src="~/Images/yazeed.jpg" />*@
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
 
-                    <div id="carouselExample3Controls" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-inner">
-
-                            @foreach (var item in Model)
-                            {
-
-                                if (item.flag == true)
-                                {
-                               
-
-
-                                        <div class="carousel-item active">
-                                            <div class="box col-lg-10 mx-auto">
-                                                <div class="img_container">
-                                                    <div class="img-box">
-                                                        <div class="img_box-inner">
-                                                            <img src="~/Images/yazeed.jpg" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="detail-box">
-                                                    <h5>
-                                                        @item.Name
-                                                    </h5>
-                                                    <h6>
-                                                        Customer
-                                                    </h6>
-                                                    <p>
-                                                        @item.Comment
-                                                    </p>
-                                                </div>
                                             </div>
                                         </div>
-
-                                  
-
-
-                                }
-                            }
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>@item.Name</h5>
+                                        <h6>Customer</h6>
+                                        <p>@item.Comment</p>
+                                    </div>
+                                </div>
+                            </div>
+                            firstActive = false;
+                        }
+                    }
+                    else
+                    {
+                        <div class="carousel-item active">
+                            <p>No data to display</p>
                         </div>
-                        <div class="carousel_btn_box">
-                            <a class="carousel-control-prev" href="#carouselExample3Controls" role="button" data-slide="prev">
-                                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExample3Controls" role="button" data-slide="next">
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                    }
+                </div>
+                <div class="carousel_btn_box">
+                    <a class="carousel-control-prev" href="#carouselExample3Controls" role="button" data-slide="prev">
+                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample3Controls" role="button" data-slide="next">
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
 
-                    </div>
 
 
 
-        }
-        else
-        {
-            <p>No data to display</p>
-        }
+      
     </div>
 </section>
+
+
+
+
+

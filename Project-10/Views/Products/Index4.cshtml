@@ -11,6 +11,24 @@
         flex-wrap:wrap;
         justify-content:space-around;
     }
+    #AddToCart {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 45px;
+        background-color: #f7444e;
+        border: 1px solid #f7444e;
+        color: #ffffff;
+        border-radius: 35px;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        margin-right:30%;
+        font-weight: 600;
+        width: 100%;
+        max-width: 285px;
+    }
 </style>
 
     @foreach (var item in Model)
@@ -21,33 +39,80 @@
             <div class="container " style="text-align:center">
                 <div class="row  align-items-center">
                     <div class="col-md-5"><img class="card-img-top mb-5 mb-md-0" src="~/Images/@item.ProductImage" alt="..." /></div>
-                    @*<img src="~/Images/@item.ProductImage" style="height: 290px; width: 96%; border-radius: 10px " alt="">*@
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="Product-Info">
-                        <h4 class="col-md-4">Product Name</h4>
-                   <h1 class="col-md-3"> @item.ProductName</h1>
-                    <p class="lead">@item.ProductDescription</p> <br />
-                    <div class="fs-5 mb-5">
-                        <span> @item.price $</span>
-                    </div>
+                        <h5 class="col-md-6">Product Name</h5>
+                        <h1 class="col-md-6"> @item.ProductName</h1> <br />
 
-                    <div class="d-flex " style="margin-left:33%">
-                        @*<button class="btn btn-outline-dark flex-shrink-0" type="button">
-                <i class="bi-cart-fill me-1"></i>
-                Add to cart
-            </button>*@
-                        @*<a class="option1" href="@Url.Action("Buy", "Carts", new { id = item.ProductId })"> Add To Cart</a>*@
+                        <h5 class="col-md-6">Product Description</h5>
+                        <p class="lead col-md-6">@item.ProductDescription</p> <br />
 
-                    </div>
-                    @using (Html.BeginForm("Buy", "Carts", FormMethod.Post))
-                    {
-                       
-                        <input hidden type="number" value="@item.ProductId" name="id"/>
-                        <input class="form-control text-center me-3" min="0" id="inputQuantity" name="Quantity" type="number" value="1" style="max-width: 4rem" />
-                        <button type="submit" class="btn btn-primary mt-3">Add To Cart</button>
-
-                    }
+                        <h5 class="col-md-6">Price</h5>
                         
+                            <p class=" col-md-6"> @item.price JOD</p> <br />
+                       
+
+                        <h5  class="col-md-6">Quantity</h5>
+
+
+                        <div class="col-md-6">
+                            @using (Html.BeginForm("Buy", "Carts", FormMethod.Post))
+                            {
+
+                                <input class="form-control text-center " min="0" id="inputQuantity" name="Quantity" value="1" type="number" style="max-width: 4rem ; margin-left:40%" /> <br />
+
+                                <input hidden type="number" value="@item.ProductId" name="id" />
+                                <button type="submit" id="AddToCart" onclick="preventDefault(event)" class="btn  mt-3 ">Add To Cart</button>
+
+
+                            }
+
+
+
+                            <script>
+                            function preventDefault(event) {
+                                event.preventDefault();
+
+                                // Get the form element
+                                var form = event.target.form;
+
+                                // Create a FormData object to submit the form data
+                                var formData = new FormData(form);
+
+                                // Submit the form using an AJAX request
+                                fetch(form.action, {
+                                    method: 'POST',
+                                    body: formData
+                                })
+                                    .then(response => {
+
+                                        // Show the success SweetAlert after the action is complete
+                                        Swal.fire({
+                                            position: 'center',
+                                            icon: 'success',
+                                            title: 'This product has been successfully added to your cart',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+
+                                            .then(function () {
+                                                window.location.href = "/Carts/Index2";
+
+                                                Carts / Index2
+
+
+                                            })
+
+                                    })
+
+                            }
+                            </script>
+
+
+
+                        </div>
+                        
+
                     </div>
                 </div>
 
@@ -57,11 +122,5 @@
         </section>
 
     }
-
-
-
-
-
-
 
 

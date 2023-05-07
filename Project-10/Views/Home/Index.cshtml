@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Project_10.Models.Review>
+﻿@*@model IEnumerable<Project_10.Models.Review>*@
 
 
 
@@ -54,7 +54,7 @@
 
     .review_button {
         display: flex;
-        justify-content:space-around;
+        justify-content: space-around;
         padding: 10px 45px;
         background-color: #f7444e;
         border: 1px solid #f7444e;
@@ -63,11 +63,12 @@
         -webkit-transition: all 0.3s;
         transition: all 0.3s;
         text-transform: uppercase;
-        margin-top: 30px;
+        margin-top: 25px;
+        margin-bottom: 20px;
         font-weight: 600;
         width: 100%;
         max-width: 285px;
-      /*  margin-left: 20%;*/
+        /*  margin-left: 20%;*/
     }
 </style>
 
@@ -77,7 +78,7 @@
     <!-- slider section -->
     <section class="slider_section ">
         <div class="slider_bg_box">
-            <img src="~/images/slider.jfif" alt="" >
+            <img src="~/images/slider.jfif" alt="">
         </div>
         <div id="customCarousel1" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -95,10 +96,7 @@
                                         for Any Occasion
                                     </h1>
 
-                                    @*<img src="~/Images/Gifty.png" style="width:80%;height:300px" />*@
-                                    @*<p>
-                                            Discover Our Best-Selling Gifts: Find the Perfect Gift for Any Occasion!
-                                        </p>*@
+                                  
                                     <div class="btn-box">
                                         <a href="#Category" class="btn1">
                                             Shop Now
@@ -142,14 +140,12 @@
                                     <h1>
                                         Read Our <br />
                                         <span>
-                                            Five-Star Reviews
+                                            Reviews
                                         </span>
                                         <br>
                                         and Shop with Confidence
                                     </h1>
-                                    @*<p>
-                                            See What Our Customers are Saying: Read Our Five-Star Reviews and Shop with Confidence
-                                        </p>*@
+                                  
                                     <div class="btn-box">
                                         <a href="#reviews" class="btn1">
                                             Show Reviews
@@ -203,7 +199,7 @@
                 <div class="col-md-6 ml-auto">
                     <div class="heading_container remove_line_bt">
                         <h2>
-                            Who are we ?
+                            Who we are ?
                         </h2>
                     </div>
                     <p style="margin-top: 20px;margin-bottom: 30px;">
@@ -214,8 +210,8 @@
                         Discover the perfect gift today at GIFTY.
                     </p>
                     @*<a href="~/About/Index">
-                    Read More
-                </a>*@
+                            Read More
+                        </a>*@
                     @using (Html.BeginForm("Index", "About", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
@@ -446,7 +442,7 @@
                     </div>
                     <div class="detail-box">
                         <h5 style="color:white">
-                            Free Shiping
+                            Free Shipping
                         </h5>
                         <p>
                             With our free shipping policy, you can enjoy peace of mind knowing that the price you see is the price you pay.
@@ -516,12 +512,12 @@
                         {
                             @Html.AntiForgeryToken()
                             <input type="email" name="Email" placeholder="Enter your email">
-                           
+
                             <button id="subscribe-btn" type="submit" onclick="preventDefault(event)">subscribe</button>
 
 
                             <script>
-                                 function preventDefault(event) {
+                                function preventDefault(event) {
                                     event.preventDefault();
 
                                     // Get the form element
@@ -559,7 +555,7 @@
                                             }
                                         })
 
-                                       
+
 
                                 }</script>
 
@@ -584,6 +580,23 @@
 <!-- Start Review Section-->
 
 
+
+
+
+
+@{
+    Project_10.Models.Project10Entities db = new Project_10.Models.Project10Entities();
+    string email = User.Identity.Name;
+    var customer = db.Customers.Where(x => x.CustomerEmail == email).FirstOrDefault();
+    string name = "";
+    if (customer != null)
+    {
+        name = customer.CustomerName;
+    }
+
+
+}
+
 <section>
     <div>
 
@@ -595,36 +608,36 @@
 
         @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "myForm2" }))
         {
-                    @Html.AntiForgeryToken()
-                    <div class="row">
+            @Html.AntiForgeryToken()
+            <div class="row">
 
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group fl_icon">
                         <div class="icon"><i class="fa fa-user"></i></div>
-                        <input class="form-input" type="text" name="Name" placeholder="Your name">
+                        <input class="form-input" type="text" name="Name" value="@name" placeholder="Your name" required>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 fl_icon">
                     <div class="form-group fl_icon">
                         <div class="icon"><i class="fa fa-envelope-o"></i></div>
-                        <input class="form-input" type="text" name="Email" placeholder="Your email">
+                        <input class="form-input" type="text" name="Email" value="@email" placeholder="Your email" required>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 fl_icon">
                     <div class="form-group ">
-                        <textarea class="form-input" required="" name="Comment" placeholder="Your Comment"></textarea>
+                        <textarea class="form-input" required name="Comment" placeholder="Your Comment"></textarea>
                     </div>
                 </div>
             </div>
 
 
-                    <div style="display:flex; justify-content:space-around">
-                        <button id="submit-comment-btn" class="review_button" onclick="preventDefault(event)">Submit</button>
+            <div style="display:flex; justify-content:space-around">
+                <button id="submit-comment-btn" class="review_button" onclick="preventDefault(event)">Submit</button>
 
 
 
-                    </div>
+            </div>
         }
 
 

@@ -43,7 +43,11 @@
 
 <body>
 
-
+    @*<style>
+        body {
+            background: -webkit-linear-gradient(left,#f2f5fa, #b3b1b2);
+        }
+    </style>*@
 
     <!-- header section strats -->
     <header class="header_section">
@@ -58,22 +62,15 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        @*class="nav-item active"*@
-                        @*<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="testimonial.html">Testimonial</a></li>
-                                </ul>
-                            </li>*@
-                        @*<li class="nav-item">
-                                <a class="nav-link" href="product.html">Products</a>
-                            </li>*@
+
                         <li class="nav-item">
                             <a class="nav-link" href="/About/Index">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Contacts/Index2">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Orders/Index2">My Orders</a>
                         </li>
 
                         @Html.Partial("_LoginPartial")
@@ -137,11 +134,7 @@
                               </svg>
                             </a>
                         </li>
-                        <form class="form-inline">
-                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
+                       
                     </ul>
 
                 </div>

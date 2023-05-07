@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -18,6 +19,8 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Products
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Index(string Search, string ProductName, string ProductPrice , string Occasion)
         {
             decimal searchPrice;
@@ -28,10 +31,6 @@ namespace Project_10.Controllers
                 products = products.Where(x => x.ProductName.Contains(Search));
             }
 
-            //else if (decimal.TryParse(Search, out searchPrice) && ProductPrice == "ProductPrice")
-            // {
-            //     products = products.Where(x => x.price == searchPrice);
-            // }
 
             
            else if (decimal.TryParse(Search, out searchPrice) && ProductPrice == "ProductPrice")
@@ -64,30 +63,13 @@ namespace Project_10.Controllers
             var products = db.Products.Include(p => p.Category).Include(p => p.Occasion).Where(x => x.ProductId == id);
             return View(products.ToList());
 
-
-            //ProductModel productModel = new ProductModel();
-            //ViewBag.products = productModel.findAll();
-            //return View();
         }
 
 
 
-
-        //public ActionResult Cart(int? id)
-        //{
-        //    var userEmail = User.Identity.GetUserName();
-        //    ViewBag.UserEmail = userEmail;
-        //    ViewBag.customerId = db.Customers.Where(x=>x.CustomerEmail == userEmail).FirstOrDefault().CustomerId;
-        //    var products = db.Carts.Where(x => x.Customer.CustomerEmail == userEmail).ToList();
-        //    return View(products);
-        //}
-
-
-
-
-
-
         // GET: Products/Details/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -103,6 +85,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
@@ -115,6 +99,8 @@ namespace Project_10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create([Bind(Include = "ProductId,ProductName,ProductDescription,ProductImage,price,Quantity,Gender,CategoryId,OccasionId")] Product product, HttpPostedFileBase ProductImage)
         {
             if (ModelState.IsValid)
@@ -136,6 +122,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -143,6 +131,8 @@ namespace Project_10.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
+            Session["ProductImage"] = product.ProductImage;
+
             if (product == null)
             {
                 return HttpNotFound();
@@ -157,10 +147,28 @@ namespace Project_10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,ProductDescription,ProductImage,price,Quantity,Gender,CategoryId,OccasionId")] Product product)
+        [Authorize(Roles = "Admin")]
+
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,ProductDescription,ProductImage,price,Quantity,Gender,CategoryId,OccasionId")] Product product , HttpPostedFileBase ProductImage)
         {
             if (ModelState.IsValid)
             {
+
+                if (ProductImage != null)
+                {
+
+                    string pathpic = Path.GetFileName(ProductImage.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Images/"), pathpic);
+                    ProductImage.SaveAs(path);
+                    product.ProductImage = pathpic;
+
+                }
+                else
+                {
+                    product.ProductImage = Session["ProductImage"].ToString();
+                }
+
+
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -171,6 +179,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -188,6 +198,8 @@ namespace Project_10.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);

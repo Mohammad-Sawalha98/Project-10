@@ -17,6 +17,8 @@ namespace Project_10.Controllers
         private Project10Entities db = new Project10Entities();
 
         // GET: Orders
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Index(string Search, string FirstName, string city)
         {
             var orders = db.Orders.Include(o => o.AspNetUser);
@@ -33,6 +35,8 @@ namespace Project_10.Controllers
             return View(orders.ToList());
         }
 
+
+        [Authorize(Roles = "Customer")]
         public ActionResult Index2()
         {
             string email = User.Identity.GetUserName();
@@ -45,6 +49,8 @@ namespace Project_10.Controllers
 
 
         // GET: Orders/Details/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -60,6 +66,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Orders/Create
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create()
         {
             ViewBag.User_id = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -71,6 +79,8 @@ namespace Project_10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create([Bind(Include = "OrderId,OrderPrice,isCheckout,Id,totalAmount,orderDate,Address_one,Address_two,email,phoneNumber,FirstName,LastName,Payment_Method,City,User_id,Messege")] Order order)
         {
             if (ModelState.IsValid)
@@ -85,6 +95,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Orders/Edit/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -105,6 +117,8 @@ namespace Project_10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit([Bind(Include = "OrderId,OrderPrice,isCheckout,Id,totalAmount,orderDate,Address_one,Address_two,email,phoneNumber,FirstName,LastName,Payment_Method,City,User_id,Messege")] Order order)
         {
             if (ModelState.IsValid)
@@ -118,6 +132,8 @@ namespace Project_10.Controllers
         }
 
         // GET: Orders/Delete/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -135,6 +151,8 @@ namespace Project_10.Controllers
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult DeleteConfirmed(int id)
         {
             Order order = db.Orders.Find(id);

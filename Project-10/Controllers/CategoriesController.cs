@@ -96,6 +96,7 @@ namespace Project_10.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Category category = db.Categories.Find(id);
+            Session["categoryImage"]= category.CategoryImage;
             if (category == null)
             {
                 return HttpNotFound();
@@ -108,29 +109,26 @@ namespace Project_10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int? id ,[Bind(Include = "CategoryId,CategoryName,CategoryDescription,CategoryImage")] Category category, HttpPostedFileBase CategoryImage)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,CategoryDescription,CategoryImage")] Category category, HttpPostedFileBase CategoryImage)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+           
 
             if (ModelState.IsValid)
             {
-                var existingModel = db.Categories.AsNoTracking().FirstOrDefault(x => x.CategoryId == id);
-
+              
 
                 if (CategoryImage != null)
                 {
 
                     string pathpic = Path.GetFileName(CategoryImage.FileName);
-                    CategoryImage.SaveAs(Path.Combine(Server.MapPath("~/Images/"), CategoryImage.FileName));
+                    string path = Path.Combine(Server.MapPath("~/Images/"), pathpic);
+                    CategoryImage.SaveAs(path);
                     category.CategoryImage = pathpic;
 
                 }
                 else
                 {
-                    category.CategoryImage = existingModel.CategoryImage;
+                    category.CategoryImage = Session["categoryImage"].ToString();
                 }
 
 

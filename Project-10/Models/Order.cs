@@ -11,26 +11,58 @@ namespace Project_10.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order
     {
         public int OrderId { get; set; }
+
+        [Required(ErrorMessage = "Order price is required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Order price must be a positive number.")]
         public Nullable<int> OrderPrice { get; set; }
+
         public Nullable<bool> isCheckout { get; set; }
+
         public string Id { get; set; }
+
+        [Required(ErrorMessage = "Total amount is required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Total amount must be a positive number.")]
         public Nullable<int> totalAmount { get; set; }
+
         public Nullable<System.DateTime> orderDate { get; set; }
+
+        [Required(ErrorMessage = "Address line 1 is required.")]
         public string Address_one { get; set; }
+
         public string Address_two { get; set; }
+
+        [Required(ErrorMessage = "Email address is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email address.")]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Invalid email format")]
+
         public string email { get; set; }
+
+        [Required(ErrorMessage = "Phone number is required.")]
+        [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be a 10-digit number.")]
         public Nullable<int> phoneNumber { get; set; }
+
+        [Required(ErrorMessage = "First name is required.")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last name is required.")]
         public string LastName { get; set; }
+
         public string Payment_Method { get; set; }
+
+        [Required(ErrorMessage = "City is required.")]
         public string City { get; set; }
+
+        [Required(ErrorMessage = "User ID is required.")]
         public string User_id { get; set; }
+
         public string Messege { get; set; }
-    
+
         public virtual AspNetUser AspNetUser { get; set; }
     }
+
 }

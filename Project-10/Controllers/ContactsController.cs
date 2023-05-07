@@ -37,7 +37,7 @@ namespace Project_10.Controllers
             NewContact.Name = name;
             NewContact.Email = email;
             NewContact.Message = message;
-            NewContact.phone = phone.HasValue ? phone.Value.ToString() : string.Empty;
+            NewContact.Phone = phone.HasValue ? phone.Value.ToString() : string.Empty;
             db.Contacts.Add(NewContact);
             db.SaveChanges();
 

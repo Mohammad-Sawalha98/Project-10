@@ -48,14 +48,14 @@
                     @*<th>
                             @Html.DisplayNameFor(model => model.OrderPrice)
                         </th>*@
-                    <th>
-                        @Html.DisplayNameFor(model => model.isCheckout)
-                    </th>
+                    @*<th>
+                        is Checkout?
+                    </th>*@
                     @*<th>
                             @Html.DisplayNameFor(model => model.Id)
                         </th>*@
                     <th>
-                        @Html.DisplayNameFor(model => model.totalAmount)
+                    Total Price
                     </th>
                     @*<th>
                             @Html.DisplayNameFor(model => model.orderDate)
@@ -69,9 +69,9 @@
                     @*<th>
                             @Html.DisplayNameFor(model => model.email)
                         </th>*@
-                    <th>
-                        @Html.DisplayNameFor(model => model.phoneNumber)
-                    </th>
+                <th>
+                    phone Number
+                </th>
                     <th>
                         @Html.DisplayNameFor(model => model.FirstName)
                     </th>
@@ -99,9 +99,9 @@
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.OrderPrice)
                             </td>*@
-                        <td>
+                        <!--<td>-->
                             @*@Html.DisplayFor(modelItem => item.isCheckout)*@
-                            @if (item.isCheckout == true)
+                            <!--@if (item.isCheckout == true)
                             {
                                 <span>Done</span>
                             }
@@ -109,12 +109,12 @@
                             {
                                 <span>Not Yet</span>
                             }
-                        </td>
+                        </td>-->
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>*@
                         <td>
-                            @Html.DisplayFor(modelItem => item.totalAmount)
+                            @Html.DisplayFor(modelItem => item.totalAmount) JOD
                         </td>
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.orderDate)

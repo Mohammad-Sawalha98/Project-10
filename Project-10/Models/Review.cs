@@ -11,13 +11,24 @@ namespace Project_10.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Review
     {
         public int ReviewId { get; set; }
+
+        [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Invalid email format")]
+
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Comment is required")]
         public string Comment { get; set; }
+
         public Nullable<bool> flag { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace Project_10.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,12 @@ namespace Project_10.Models
         }
     
         public int CategoryId { get; set; }
+        [Required]
+
         public string CategoryName { get; set; }
+        [Required]
         public string CategoryDescription { get; set; }
+        [Required]
         public string CategoryImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
